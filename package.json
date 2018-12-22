@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "build:server": "lerna run build --scope={@monorepo/common,@monorepo/server}",
+    "build:web": "lerna run build --scope={@monorepo/ui,@monorepo/common,@monorepo/web}"
+  },
+  "devDependencies": {
+    "lerna": "^3.8.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
