@@ -1,4 +1,4 @@
-import { Resolver, Query } from 'type-graphql';
+import { Resolver, Query, Arg } from 'type-graphql';
 import { User } from '../../entity/User';
 
 @Resolver(User)
@@ -6,7 +6,11 @@ export class UserResolver {
   constructor() {}
 
   @Query(() => User, { nullable: true })
-  async me() {
-    return User.findOne({ id: 'something' });
+  async me(@Arg('id', { nullable: true }) id: string) {
+    if (id) {
+      return User.find({ id });
+    } else {
+      return null;
+    }
   }
 }

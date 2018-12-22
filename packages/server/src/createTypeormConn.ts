@@ -8,12 +8,23 @@ export const createTypeormConn = async () => {
       // console.log(getConnectionOptions);
       // const config = await getConnectionOptions();
       return createConnection({
+        name: 'default',
         type: 'postgres',
         host: 'localhost',
         port: 5432,
         username: 'samuherek',
         password: '',
-        database: 'monorepo'
+        database: 'monorepo',
+        logging: true,
+        synchronize: true,
+        entities: ['src/entity/**/*.*'],
+        migrations: ['src/migration/**/*.*'],
+        subscribers: ['src/subscriber/**/*.*'],
+        cli: {
+          entitiesDir: 'src/entity',
+          migrationsDir: 'src/migration',
+          subscribersDir: 'src/subscriber'
+        }
       });
     } catch (err) {
       console.log(err);
