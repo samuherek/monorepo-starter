@@ -23,8 +23,8 @@ export const createTypeormConn = async () => {
         cli: {
           entitiesDir: 'src/entity',
           migrationsDir: 'src/migration',
-          subscribersDir: 'src/subscriber'
-        }
+          subscribersDir: 'src/subscriber',
+        },
       });
     } catch (err) {
       console.log(err);

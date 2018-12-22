@@ -13,8 +13,8 @@ const startServer = async () => {
 
   const server = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [UserResolver]
-    })
+      resolvers: [UserResolver],
+    }),
   });
 
   server.applyMiddleware({ app }); // app is from an existing express app
