@@ -5,6 +5,4 @@ const ButtonStyled = styled.button`
   background: ${({ theme }) => theme.colors.primary};
 `;
 
-const Button = () => <ButtonStyled>button</ButtonStyled>;
-
-export default Button;
+export const Button = () => <ButtonStyled>button</ButtonStyled>;
